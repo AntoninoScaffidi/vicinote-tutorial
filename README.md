@@ -1,24 +1,27 @@
-# README
+# vicinote-tutorial
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Companion Rails app for the [VicinoTe](https://antoninoscaffidi.github.io/series/vicinote/) tutorial series ([Italiano](https://antoninoscaffidi.github.io/it/series/vicinote/)) — a local services marketplace built from scratch, from `rails new` to an AI module powered by [RubyLLM](https://rubyllm.com).
 
-Things you may want to cover:
+*VicinoTe — from the Italian "vicino a te", "close to you".*
 
-* Ruby version
+Each blog post has a matching git tag here (`episode-1`, `episode-2`, ...) so you can check out the exact code state discussed in that post:
 
-* System dependencies
+```bash
+git checkout episode-1
+```
 
-* Configuration
+## Stack
 
-* Database creation
+- Rails 8, Tailwind CSS
+- PostgreSQL
+- [RubyLLM](https://rubyllm.com) (from the advanced episodes onwards)
 
-* Database initialization
+## Setup
 
-* How to run the test suite
+```bash
+bundle install
+bin/rails db:create db:migrate
+bin/dev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+App available at `http://127.0.0.1:3000`.
