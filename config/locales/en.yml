@@ -33,3 +33,8 @@ en:
     attributes:
       service:
         price_cents: "Price"
+  number:
+    currency:
+      format:
+        unit: "€"
+        format: "%u%n"
