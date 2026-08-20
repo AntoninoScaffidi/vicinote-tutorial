@@ -11,17 +11,9 @@
   </p>
 
   <div class="mt-10 flex gap-4">
-    <span class="rounded-md bg-indigo-600 px-4 py-2 text-white font-medium opacity-60 cursor-not-allowed">
-      Browse services
-    </span>
-    <span class="rounded-md border border-gray-300 px-4 py-2 text-gray-700 font-medium opacity-60 cursor-not-allowed">
-      Offer a service
-    </span>
+    <%= link_to "Browse services", services_path, class: "rounded-md bg-indigo-600 px-4 py-2 text-white font-medium hover:bg-indigo-700" %>
+    <%= link_to "Offer a service", authenticated? ? new_service_path : new_registration_path, class: "rounded-md border border-gray-300 px-4 py-2 text-gray-700 font-medium hover:bg-gray-50" %>
   </div>
-
-  <p class="mt-4 text-sm text-gray-500">
-    Both buttons are placeholders — we build what's behind them in the next episodes.
-  </p>
 
   <hr class="my-14 border-gray-200">
 
