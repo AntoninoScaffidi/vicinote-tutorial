@@ -1,8 +1,13 @@
 class ServicesController < ApplicationController
-  allow_unauthenticated_access only: :index
+  allow_unauthenticated_access only: %i[index show]
 
   def index
     @services = Service.includes(:category, :user).order(created_at: :desc)
+  end
+
+  def show
+    @service = Service.includes(:category, :user).find(params[:id])
+    @booking = Booking.new
   end
 
   def new

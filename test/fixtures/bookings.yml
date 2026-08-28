@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  customer: one
+  price_cents: 1
+  status: MyString
+  scheduled_on: 2026-08-27
+
+two:
+  service: two
+  customer: two
+  price_cents: 1
+  status: MyString
+  scheduled_on: 2026-08-27

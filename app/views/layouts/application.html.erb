@@ -30,6 +30,7 @@
 
         <nav class="flex items-center gap-4 text-sm">
           <% if authenticated? %>
+            <%= link_to "My bookings", bookings_path, class: "text-gray-700 hover:underline" %>
             <span class="text-gray-500"><%= Current.user.email_address %></span>
             <%= button_to "Sign out", session_path, method: :delete, class: "text-gray-700 hover:underline bg-transparent p-0 cursor-pointer" %>
           <% else %>

@@ -1,0 +1,43 @@
+<div class="max-w-2xl mx-auto w-full">
+  <% if notice = flash[:notice] %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-700 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <h1 class="text-2xl font-bold text-gray-900 mb-6">My bookings</h1>
+
+  <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-3">Services you've booked</h2>
+  <% if @my_bookings.none? %>
+    <p class="text-gray-500 mb-8">You haven't booked anything yet.</p>
+  <% else %>
+    <div class="space-y-3 mb-8">
+      <% @my_bookings.each do |booking| %>
+        <div class="rounded-lg border border-gray-200 p-4 flex items-center justify-between">
+          <div>
+            <p class="font-medium text-gray-900"><%= booking.service.title %></p>
+            <p class="text-sm text-gray-500"><%= booking.scheduled_on.strftime("%-d %B %Y") %> &middot; <%= booking.status %></p>
+          </div>
+          <p class="font-semibold text-gray-900"><%= number_to_currency(booking.price) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-3">Bookings received</h2>
+  <% if @received_bookings.none? %>
+    <p class="text-gray-500">Nobody has booked one of your services yet.</p>
+  <% else %>
+    <div class="space-y-3">
+      <% @received_bookings.each do |booking| %>
+        <div class="rounded-lg border border-gray-200 p-4 flex items-center justify-between">
+          <div>
+            <p class="font-medium text-gray-900"><%= booking.service.title %></p>
+            <p class="text-sm text-gray-500">
+              <%= booking.scheduled_on.strftime("%-d %B %Y") %> &middot; <%= booking.status %> &middot; booked by <%= booking.customer.email_address %>
+            </p>
+          </div>
+          <p class="font-semibold text-gray-900"><%= number_to_currency(booking.price) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
